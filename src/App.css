@@ -33,6 +33,7 @@
   & header {
     display: grid;
     gap: 1rem;
+    margin-bottom: 1rem;
 
     & h2 {
       margin-left: 1rem;
@@ -121,11 +122,11 @@
   box-shadow: 0 0px 3px var(--clr-border);
 
   &.paid_break {
-    background-color: hsl(160, 62%, 25%);
+    background-color: var(--clr-paid-breaks);
   }
 
   &.unpaid_break {
-    background-color: hsl(25, 62%, 25%);
+    background-color: var(--clr-unpaid-breaks);
   }
 
   &.break--past {

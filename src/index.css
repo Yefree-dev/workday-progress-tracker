@@ -15,6 +15,8 @@
   /* Accents */
   --clr-span-a: hsl(160, 68%, 40%); /* greenish accent */
   --progress-bar-main-clr: hsl(180, 55%, 37%); /* aqua progress bar */
+  --clr-paid-breaks: hsl(180, 47%, 20%);
+  --clr-unpaid-breaks: hsl(30, 47%, 20%);
 
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -39,14 +41,14 @@
 @media (prefers-color-scheme: light) {
   :root {
     /* Text */
-    --clr-heading-text: #02343a; /* deep teal for headings */
+    --clr-heading-text: hsl(186, 93%, 5%); /* deep teal for headings */
     --clr-base-text: hsl(187, 20%, 25%); /* darker body text */
     --clr-secondary-text: hsl(187, 35%, 40%); /* muted teal for accents */
 
     /* Backgrounds */
-    --clr-bgk-body: #f4fbfb; /* almost white with hint of teal */
-    --clr-bgk-main: #eaf5f5; /* main container background */
-    --clr-bgk-main-card: #dff0f0; /* cards stand out slightly */
+    --clr-bgk-body: hsl(180, 47%, 90%); /* almost white with hint of teal */
+    --clr-bgk-main: hsl(180, 35%, 95%); /* main container background */
+    --clr-bgk-main-card: hsl(180, 36%, 99%); /* cards stand out slightly */
 
     /* Borders / dividers */
     --clr-border: #a8d9d4; /* subtle soft teal border */
@@ -54,6 +56,8 @@
     /* Accents */
     --clr-span-a: hsl(160, 65%, 35%); /* green accent consistent with dark */
     --progress-bar-main-clr: #39a79a; /* teal progress bar */
+    --clr-paid-breaks: hsl(180, 47%, 85%);
+    --clr-unpaid-breaks: hsl(30, 47%, 85%);
   }
   a:hover {
     color: #747bff;

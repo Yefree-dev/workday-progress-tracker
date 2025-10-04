@@ -93,6 +93,13 @@ export default function WorkdayTracker() {
                 <p>Time working: {formatHM(elapsed)}</p>
               </div>
             </div>
+            <ProgressBar
+              progress={progress}
+              currentTime={currentTime}
+              breakMarkers={breakMarkers}
+              startTime={startTime}
+              endTime={endTime}
+            />
             <h2>Workday Progress</h2>
             <div className="time_info">
               <Article
@@ -112,13 +119,6 @@ export default function WorkdayTracker() {
               />
             </div>
           </header>
-          <ProgressBar
-            progress={progress}
-            currentTime={currentTime}
-            breakMarkers={breakMarkers}
-            startTime={startTime}
-            endTime={endTime}
-          />
 
           <section className="section_info">
             <div className="time_summary">
