@@ -1,0 +1,64 @@
+:root {
+  /* Text */
+  --clr-heading-text: hsl(191, 90%, 95%); /* bright cyan for contrast */
+  --clr-base-text: hsla(188, 74%, 85%, 0.85); /* softer body text */
+  --clr-secondary-text: hsl(187, 65%, 65%); /* accent text */
+
+  /* Backgrounds */
+  --clr-bgk-body: hsl(190, 92%, 0%); /* dark teal base */
+  --clr-bgk-main: hsl(190, 89%, 3%); /* slightly lighter than body */
+  --clr-bgk-main-card: hsl(191, 88%, 10%); /* card surfaces */
+
+  /* Borders / dividers */
+  --clr-border: #056471; /* teal border */
+
+  /* Accents */
+  --clr-span-a: hsl(160, 68%, 40%); /* greenish accent */
+  --progress-bar-main-clr: hsl(180, 55%, 37%); /* aqua progress bar */
+
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: var(--clr-base-text);
+  background-color: var(--clr-bgk-body);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    /* Text */
+    --clr-heading-text: #02343a; /* deep teal for headings */
+    --clr-base-text: hsl(187, 20%, 25%); /* darker body text */
+    --clr-secondary-text: hsl(187, 35%, 40%); /* muted teal for accents */
+
+    /* Backgrounds */
+    --clr-bgk-body: #f4fbfb; /* almost white with hint of teal */
+    --clr-bgk-main: #eaf5f5; /* main container background */
+    --clr-bgk-main-card: #dff0f0; /* cards stand out slightly */
+
+    /* Borders / dividers */
+    --clr-border: #a8d9d4; /* subtle soft teal border */
+
+    /* Accents */
+    --clr-span-a: hsl(160, 65%, 35%); /* green accent consistent with dark */
+    --progress-bar-main-clr: #39a79a; /* teal progress bar */
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
