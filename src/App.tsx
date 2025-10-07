@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState } from "react";
 
 import { useWorkProgress } from "./customHooks/useWorkProgress";
 import { useCurrentTime } from "./customHooks/useCurrentTime";
@@ -7,11 +8,13 @@ import type { BreakDefinition } from "./types/types";
 import Article from "./components/Article";
 import BreakSection from "./components/BreakSection";
 import ProgressBar from "./components/ProgressBar";
+import Form from "./components/Form";
 
 export default function WorkdayTracker() {
-  const startTime = "08:00";
-  const endTime = "17:00";
-  const hourlyRate = 200; // hourly rate
+  // Default values
+  const [startTime, setStartTime] = useState("07:00");
+  const [endTime, setEndTime] = useState("15:00");
+  const [hourlyRate, setHourlyRate] = useState(200); // dollars/hour
 
   const breakSchedule: BreakDefinition[] = [
     {
@@ -43,9 +46,14 @@ export default function WorkdayTracker() {
     },
   ];
 
-  const progress = useWorkProgress(startTime, endTime);
   const currentTime = useCurrentTime();
+  const progress = useWorkProgress(startTime, endTime);
   const breaks = calculateBreaks(startTime, endTime, breakSchedule);
+
+  // NEW: subtract unpaid breaks
+  const unpaidMinutes = breakSchedule
+    .filter((b) => !b.paid)
+    .reduce((sum, b) => sum + b.duration, 0);
 
   const startMins = timeToMinutes(startTime);
   const endMins = timeToMinutes(endTime);
@@ -55,11 +63,6 @@ export default function WorkdayTracker() {
   const total = endMins - startMins;
   const elapsed = Math.max(0, Math.min(nowMins - startMins, total));
   const remaining = Math.max(0, endMins - nowMins);
-
-  // NEW: subtract unpaid breaks
-  const unpaidMinutes = breakSchedule
-    .filter((b) => !b.paid)
-    .reduce((sum, b) => sum + b.duration, 0);
 
   // billable shift length
   const billableTotal = total - unpaidMinutes;
@@ -174,6 +177,14 @@ export default function WorkdayTracker() {
           </section>
         </section>
         <BreakSection breaks={breaks} />
+        <Form
+          startTime={startTime}
+          setStartTime={setStartTime}
+          endTime={endTime}
+          setEndTime={setEndTime}
+          hourlyRate={hourlyRate}
+          setHourlyRate={setHourlyRate}
+        />
       </main>
     </div>
   );
